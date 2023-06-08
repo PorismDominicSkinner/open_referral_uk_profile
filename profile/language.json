@@ -1,0 +1,12 @@
+{
+   "properties": {
+     "location_id": null,
+     "name": null,
+     "code": null,
+     "note": null,
+     "attributes": null
+   },
+   "allOf": [
+     {"required": ["url"]} 
+   ]
+}
