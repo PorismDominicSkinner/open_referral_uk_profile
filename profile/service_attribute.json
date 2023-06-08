@@ -1,0 +1,45 @@
+{
+  "name": "service_attribute",
+  "path": "service_attribute.csv",  
+  "description":"The services attributes table creates a link between a service and one or more classifications that describe the nature of the service provided."
+   "properties": {
+    "id": {
+      "name": "id",
+      "type": "string",
+      "title": "Identifier",
+      "description": "The identifier of the postal address. Each postal address must have a unique identifier.",
+      "format": "uuid",
+      "constraints": {
+        "unique": true
+      },
+      "example": "74706e55-df26-4b84-80fe-ecc30b5befb4",
+      "core": "Y"
+    },
+    "service_id": {
+      "name": "service_id",
+      "type": "string",
+      "title": "Service Identifier",
+      "description": "The identifier of the service.",
+      "format": "uuid",
+      "constraints": {
+        "unique": false
+      },
+      "example": "74706e55-df26-4b84-80fe-ecc30b5befb4",
+      "core": "Y"
+    },
+    "taxonomy_term_id": {
+      "name": "taxonomy_term_id",
+      "type": "string",
+      "title": "Taxonomy Term Identifier",
+      "description": "The identifier of the taxonomy term identifier.",
+      "format": "uuid",
+      "constraints": {
+        "unique": false
+      },
+      "example": "74706e55-df26-4b84-80fe-ecc30b5befb4",
+      "core": "Y"
+    }
+   },
+   "allOf": [
+   ]
+}
