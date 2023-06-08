@@ -1,0 +1,24 @@
+{
+   "properties": {
+     "code": null,
+     "name":null,
+     "description": null,
+     "language":null,
+     "taxonomy_id":null,
+     "term_uri":null,
+     "taxonomy_detail":null,
+    "term": {
+      "name": "term",
+      "type": "string",
+      "title": "Term",
+      "description": "The taxonomy term itself.",
+      "constraints": {
+        "unique": false
+      },
+      "example": "name",
+      "core": "Y"
+    },          
+   },
+   "allOf": [
+   ]
+}
