@@ -1,6 +1,6 @@
 {
-  "name": "regular_schedule",
-  "path": "regular_schedule.csv",  
+  "name": "schedule",
+  "path": "schedule.csv",  
    "properties": {
      "location_id": null,
      "timezone": null,
@@ -15,7 +15,7 @@
      "schedule_link": null,
      "attending_type": null,
      "notes": null,
-     "attributes": null,
+     "attributes": null
    },
    "allOf": [
      {"required": ["url"]} 
