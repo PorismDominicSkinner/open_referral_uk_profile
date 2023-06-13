@@ -34,38 +34,6 @@
       "example": "3a19ff88-4620-4d17-9830-ac1d859eb5d5",
       "core": "Y"
     },
-    "description": {
-      "name": "description",
-      "type": "string",
-      "title": "Description",
-      "description": "A free text description of the assistance or infrastructure that facilitates access to clients with disabilities.",
-      "constraints": {
-        "unique": false
-      },
-      "example": "The building is equipped with induction loops for hearing aids. Wheelchair access is possible on all levels.",
-      "core": "Y"
-    },
-    "details": {
-      "name": "details",
-      "type": "string",
-      "title": "Details",
-      "description": "Any further details relating to the relevant accessibility arrangements at this location.",
-      "constraints": {
-        "unique": false
-      },
-      "example": "Switch hearing aid to T-coil to access the induction loop facility."
-    },
-    "url": {
-      "name": "url",
-      "type": "string",
-      "title": "URL",
-      "description": "The URL of a page giving more information about the accessibility of the location.",
-      "format": "uri",
-      "constraints": {
-        "unique": false
-      },
-      "example": "http://example.com"
-    },
     "attributes": {
       "name": "attributes",
       "type": "array",
@@ -74,9 +42,21 @@
       "items": {
         "$ref": "attribute.json"
       }
+    },
+    "accessibility": {
+      "name": "accessibility",
+      "type": "string",
+      "title": "Accessibility",
+      "description": "Description of assistance or infrastructure that facilitate access to clients with disabilities.",
+      "constraints": {
+        "unique": false
+      },
+      "example": "The building is equipped with induction loops for hearing aids. Wheelchair access is possible on all levels.",
+      "core": "Y"
     }
   },
   "required": [
     "id"
-  ]
+  ],
+  "allOf": []
 }

@@ -1,0 +1,2 @@
+id,service_id,service_at_location_id,valid_from,valid_to,dtstart,freq,interval,byday,bymonthday,description,opens_at,closes_at
+48102e86-bb50-41c4-8f1e-e269368c41d1,ac148810-d857-441c-9679-408f346de14b,e94c9f38-1e8f-4564-91d4-d53501ab1765,2005-01-01,2005-01-01,2005-01-01,WEEKLY,1,"TH,FR","2,3,4",The service is available from 10 am to 6pm weekdays. The service is not available on public holidays.,10:00:00,18:00:00

@@ -64,16 +64,6 @@
       },
       "example": "Under 18s and Over 60s"
     },
-    "currency": {
-      "name": "currency",
-      "type": "string",
-      "title": "Currency",
-      "description": "The 3 letter currency code of this cost option (expected to be gbp by Open Referral UK).",
-      "constraints": {
-        "unique": false
-      },
-      "example": "gbp"
-    },
     "amount": {
       "name": "amount",
       "type": "number",
@@ -93,15 +83,6 @@
         "unique": false
       },
       "example": "per 1 hour session"
-    },
-    "attributes": {
-      "name": "attributes",
-      "type": "array",
-      "title": "Attributes",
-      "description": "A link between a service and one or more classifications that describe the nature of the service provided.",
-      "items": {
-        "$ref": "attribute.json"
-      }
     }
   },
   "required": [
@@ -109,5 +90,12 @@
   ],
   "tabular_required": [
     "service_id"
+  ],
+  "allOf": [
+    {
+      "required": [
+        "url"
+      ]
+    }
   ]
 }
