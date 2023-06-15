@@ -98,15 +98,7 @@
             "$ref": "#/components/parameters/taxonomy_id"
           },
           {
-            "minimum_age": {
-              "name": "minimum_age",
-              "in": "query",
-              "required": false,
-              "description": "Return services with a minimum age of at least the specified value.",
-              "schema": {
-                "type": "number"
-              }
-            }
+            "$ref": "#/components/parameters/minimum_age"
           },
           {
             "maximum_age": {
@@ -610,6 +602,15 @@
         "description": "Return results in the specified format. Default is `json`. Could be `ndjson` which should stream all the results without pagination.",
         "schema": {
           "type": "string"
+        }
+      },
+      "minimum_age": {
+        "name": "minimum_age",
+        "in": "query",
+        "required": false,
+        "description": "Return services with a minimum age of at least the specified value.",
+        "schema": {
+          "type": "number"
         }
       }
     }
