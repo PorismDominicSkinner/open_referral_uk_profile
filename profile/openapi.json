@@ -2,6 +2,7 @@
   "info": {
     "title": "Open Referral UK Profile",
     "version": "3.0",
+	"swagger": "2.0",
     "description": "Open Referral UK Profile for Version 3" ,
     "contact": null,
     "summary": null,
@@ -9,5 +10,45 @@
       "name": "Creative Commons Attribution Share-Alike 4.0 license",
       "url": "https://creativecommons.org/licenses/by/4.0/"
     }
+  },
+  "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "paths": {
+  "/services": {
+      "get": {
+        "description": "Retrieve fully nested service with all related data with id.",
+        "summary": "Retrieves paginated listings of services that only have one-to-one fields in them.",
+        "operationId": "getPaginatedListOfServices",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/search"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/per_page"
+          },
+          {
+            "$ref": "#/components/parameters/format"
+          },
+          {
+            "$ref": "#/components/parameters/taxonomy_term_id"
+          },
+          {
+            "$ref": "#/components/parameters/taxonomy_id"
+          },
+          {
+            "$ref": "#/components/parameters/organization_id"
+          },
+          {
+            "$ref": "#/components/parameters/modified_after"
+          },
+          {
+            "description": "true, false return fully nested service.",
+            "$ref": "#/components/parameters/full"
+          }
+        ]
+	}
+	}
   }
 }

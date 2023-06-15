@@ -7,7 +7,8 @@
     "license": {
       "name": "Creative Commons Attribution Share-Alike 4.0 license",
       "url": "https://creativecommons.org/licenses/by/4.0/"
-    }
+    },
+    "swagger": "2.0"
   },
   "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
   "paths": {
@@ -105,10 +106,6 @@
           },
           {
             "$ref": "#/components/parameters/modified_after"
-          },
-          {
-            "description": "Return array of just services with just 'id' and 'modified_date'.  When using this parameter aim to return all services within one page.",
-            "$ref": "#/components/parameters/minimal"
           },
           {
             "description": "true, false return fully nested service.",
