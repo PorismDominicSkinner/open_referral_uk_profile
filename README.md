@@ -1,6 +1,6 @@
 # HSDS Example Profile
 
-Replace this file with information about your profile.
+Replace this file with information about your profile. You can find the [(https://porismdominicskinner.github.io/open_referral_uk_profile/)](swagger on github pages).
 
 ## Setup environment for docs and schema tools
 
