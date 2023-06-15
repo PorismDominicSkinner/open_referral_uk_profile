@@ -1,8 +1,7 @@
 {
-  "info": {
+	"info": {
     "title": "Open Referral UK Profile",
     "version": "3.0",
-	"swagger": "2.0",
     "description": "Open Referral UK Profile for Version 3" ,
     "contact": null,
     "summary": null,

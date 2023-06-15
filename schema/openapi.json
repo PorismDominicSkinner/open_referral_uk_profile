@@ -1,5 +1,5 @@
 {
-  "openapi": "3.1.0",
+  "openapi": "3.0.0",
   "info": {
     "title": "Open Referral UK Profile",
     "version": "3.0",
@@ -7,8 +7,7 @@
     "license": {
       "name": "Creative Commons Attribution Share-Alike 4.0 license",
       "url": "https://creativecommons.org/licenses/by/4.0/"
-    },
-    "swagger": "2.0"
+    }
   },
   "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
   "paths": {
@@ -650,5 +649,6 @@
         }
       }
     }
-  }
+  },
+  "swagger": "2.0"
 }
