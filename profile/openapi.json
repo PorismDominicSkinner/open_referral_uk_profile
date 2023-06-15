@@ -37,45 +37,17 @@
 			"$ref": "#/components/parameters/minimum_age"
 		   },
 		  {
-		  "maximum_age": {
-			"name": "maximum_age",
-			"in": "query",
-			"required": false,
-			"description": "Return services with a maximum age of at equal to or below the specified value.",
-			"schema": {
-			  "type": "number"
-			}
-		  }},
+			"$ref": "#/components/parameters/maximum_age"
+		  },
 		  {
-		  "start_time": {
-			"name": "start_time",
-			"in": "query",
-			"required": false,
-			"description": "Return services with a start time of at least the specified value.",
-			"schema": {
-			  "type": "time"
-			}
-		  }},
+		  "$ref": "#/components/parameters/start_time"
+		  },
 		  {
-		  "end_time": {
-			"name": "end_time",
-			"in": "query",
-			"required": false,
-			"description": "Return services with a end time of at equal to or below the specified value.",
-			"schema": {
-			  "type": "time"
-			}
-		  }},
+		  "$ref": "#/components/parameters/end_time"
+		  },
 		  {
-		  "day": {
-			"name": "day",
-			"in": "query",
-			"required": false,
-			"description": "Return services with a day equal to the specified value.",
-			"schema": {
-			  "type": "string"
-			}
-		  }}
+		  "$ref": "#/components/parameters/day"
+		  }
         ]
 	}
 	},"/service_at_locations": {
@@ -97,55 +69,20 @@
             "$ref": "#/components/parameters/taxonomy_id"
           },
 		  {
-		  "minimum_age": {
-			"name": "minimum_age",
-			"in": "query",
-			"required": false,
-			"description": "Return services with a minimum age of at least the specified value.",
-			"schema": {
-			  "type": "number"
-			}
-		  }},
+			"$ref": "#/components/parameters/minimum_age"
+		   },
 		  {
-		  "maximum_age": {
-			"name": "maximum_age",
-			"in": "query",
-			"required": false,
-			"description": "Return services with a maximum age of at equal to or below the specified value.",
-			"schema": {
-			  "type": "number"
-			}
-		  }},
+			"$ref": "#/components/parameters/maximum_age"
+		  },
 		  {
-		  "start_time": {
-			"name": "start_time",
-			"in": "query",
-			"required": false,
-			"description": "Return services with a start time of at least the specified value.",
-			"schema": {
-			  "type": "time"
-			}
-		  }},
+		  "$ref": "#/components/parameters/start_time"
+		  },
 		  {
-		  "end_time": {
-			"name": "end_time",
-			"in": "query",
-			"required": false,
-			"description": "Return services with a end time of at equal to or below the specified value.",
-			"schema": {
-			  "type": "time"
-			}
-		  }},
+		  "$ref": "#/components/parameters/end_time"
+		  },
 		  {
-		  "day": {
-			"name": "day",
-			"in": "query",
-			"required": false,
-			"description": "Return services with a day equal to the specified value.",
-			"schema": {
-			  "type": "string"
-			}
-		  }},
+		  "$ref": "#/components/parameters/day"
+		  },
           {
             "$ref": "#/components/parameters/postcode"
           },
@@ -190,7 +127,43 @@
 		  "schema": {
 			"type": "number"
 		  }
-		} 
+		},
+		"maximum_age": {
+			"name": "maximum_age",
+			"in": "query",
+			"required": false,
+			"description": "Return services with a maximum age of at equal to or below the specified value.",
+			"schema": {
+			  "type": "number"
+			}
+		  },
+		"start_time": {
+			"name": "start_time",
+			"in": "query",
+			"required": false,
+			"description": "Return services with a start time of at least the specified value.",
+			"schema": {
+			  "type": "time"
+			}
+		  },
+		"end_time": {
+			"name": "end_time",
+			"in": "query",
+			"required": false,
+			"description": "Return services with a end time of at equal to or below the specified value.",
+			"schema": {
+			  "type": "time"
+			}
+		  },
+		"day": {
+			"name": "day",
+			"in": "query",
+			"required": false,
+			"description": "Return services with a day equal to the specified value.",
+			"schema": {
+			  "type": "string"
+			}
+		  }		  
 	  }
 	}  
 }
