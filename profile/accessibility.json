@@ -12,10 +12,7 @@
       },
       "example": "The building is equipped with induction loops for hearing aids. Wheelchair access is possible on all levels.",
       "core": "Y"
-    },
-     "description":null,
-     "details":null,
-     "url":null
+    }
    },
    "allOf": [
    ]

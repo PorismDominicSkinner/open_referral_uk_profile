@@ -107,6 +107,18 @@
                             "unique": false
                         },
                         "example": "http://example.com"
+                    },
+                    {
+                        "name": "parent_organization_id",
+                        "type": "string",
+                        "title": "Parent Organization Identifier",
+                        "description": "The identifier of the organization's parent organization.",
+                        "format": "uuid",
+                        "constraints": {
+                            "required": false,
+                            "unique": false
+                        },
+                        "example": "cd09a387-91f4-4555-94ec-e799c35344cd"
                     }
                 ]
             }
@@ -243,6 +255,51 @@
                             "unique": false
                         },
                         "example": "All of our practitioners are accredited by the BASC, UKCP, and the Professional Standards Body"
+                    },
+                    {
+                        "name": "minimum_age",
+                        "type": "number",
+                        "title": "Minimum Age",
+                        "description": "The minimum age of a person required to meet this eligibility requirement.",
+                        "constraints": {
+                            "required": false,
+                            "unique": false
+                        },
+                        "example": "12"
+                    },
+                    {
+                        "name": "maximum_age",
+                        "type": "number",
+                        "title": "Maximum Age",
+                        "description": "The maximum age of a person required to meet this eligibility requirement.",
+                        "constraints": {
+                            "required": false,
+                            "unique": false
+                        },
+                        "example": "100"
+                    },
+                    {
+                        "name": "assured_date",
+                        "type": "date",
+                        "title": "Assured Date",
+                        "description": "The date that the information about the service was last checked.",
+                        "constraints": {
+                            "required": false,
+                            "unique": false
+                        },
+                        "example": "2005-01-01"
+                    },
+                    {
+                        "name": "assurer_email",
+                        "type": "string",
+                        "title": "Assurer Email",
+                        "description": "The contact e-mail address for the person or organization which last assured the service.",
+                        "format": "email",
+                        "constraints": {
+                            "required": false,
+                            "unique": false
+                        },
+                        "example": "email@example.com"
                     },
                     {
                         "name": "alert",
@@ -571,6 +628,17 @@
                         },
                         "example": "\"+44 1234 234567\"",
                         "core": "Y"
+                    },
+                    {
+                        "name": "description",
+                        "type": "string",
+                        "title": "Description",
+                        "description": "A free text description providing extra information about the phone service",
+                        "constraints": {
+                            "required": false,
+                            "unique": false
+                        },
+                        "example": "Our main reception phone number. The phones will be available from 0800 (8am) until 1800 (6pm) local time. There may be some slight delays in answering your call if we are busy."
                     }
                 ],
                 "foreignKeys": [
@@ -818,6 +886,23 @@
                         },
                         "example": "US",
                         "core": "Y"
+                    },
+                    {
+                        "name": "address_type",
+                        "type": "string",
+                        "title": "Address Type",
+                        "description": "The type of address which may be physical, postal, or virtual.",
+                        "constraints": {
+                            "required": true,
+                            "unique": false,
+                            "enum": [
+                                "physical",
+                                "postal",
+                                "virtual"
+                            ]
+                        },
+                        "example": "postal",
+                        "core": "Y"
                     }
                 ],
                 "foreignKeys": [
@@ -1010,6 +1095,40 @@
                         },
                         "example": "18:00:00",
                         "core": "Y"
+                    },
+                    {
+                        "name": "schedule_link",
+                        "type": "string",
+                        "title": "Schedule Link",
+                        "description": "URL of a link for the schedule which may show each individual session and may provide a booking facility.",
+                        "format": "uri",
+                        "constraints": {
+                            "required": false,
+                            "unique": false
+                        },
+                        "example": "http://example.com"
+                    },
+                    {
+                        "name": "attending_type",
+                        "type": "string",
+                        "title": "Attending Type",
+                        "description": "A free text description of how to attend this service.",
+                        "constraints": {
+                            "required": false,
+                            "unique": false
+                        },
+                        "example": "You can attend this service in-person or remotely via video conferencing"
+                    },
+                    {
+                        "name": "notes",
+                        "type": "string",
+                        "title": "Notes",
+                        "description": "Free text notes on the schedule.",
+                        "constraints": {
+                            "required": false,
+                            "unique": false
+                        },
+                        "example": "Some of our staff will be unavailable during their lunch break which may be any 30 minute period between 1200 and 1400"
                     }
                 ],
                 "foreignKeys": [
@@ -1160,6 +1279,17 @@
                             "unique": false
                         },
                         "example": "extent"
+                    },
+                    {
+                        "name": "extent_type",
+                        "type": "string",
+                        "title": "Extent Type",
+                        "description": "The format of the extent field  populated from an enum of  \"geojson\", \"topojson\",  \"kml\",and (for legacy systems or early state during transformation) \"text\".",
+                        "constraints": {
+                            "required": false,
+                            "unique": false
+                        },
+                        "example": "geojson"
                     },
                     {
                         "name": "uri",
@@ -1315,6 +1445,41 @@
                         "core": "Y"
                     },
                     {
+                        "name": "description",
+                        "type": "string",
+                        "title": "Description",
+                        "description": "A free text description of the assistance or infrastructure that facilitates access to clients with disabilities.",
+                        "constraints": {
+                            "required": false,
+                            "unique": false
+                        },
+                        "example": "The building is equipped with induction loops for hearing aids. Wheelchair access is possible on all levels.",
+                        "core": "Y"
+                    },
+                    {
+                        "name": "details",
+                        "type": "string",
+                        "title": "Details",
+                        "description": "Any further details relating to the relevant accessibility arrangements at this location.",
+                        "constraints": {
+                            "required": false,
+                            "unique": false
+                        },
+                        "example": "Switch hearing aid to T-coil to access the induction loop facility."
+                    },
+                    {
+                        "name": "url",
+                        "type": "string",
+                        "title": "URL",
+                        "description": "The URL of a page giving more information about the accessibility of the location.",
+                        "format": "uri",
+                        "constraints": {
+                            "required": false,
+                            "unique": false
+                        },
+                        "example": "http://example.com"
+                    },
+                    {
                         "name": "accessibility",
                         "type": "string",
                         "title": "Accessibility",
@@ -1386,6 +1551,30 @@
                         },
                         "example": "taxonomy",
                         "core": "Y"
+                    },
+                    {
+                        "name": "taxonomy_id",
+                        "type": "string",
+                        "title": "Taxonomy Identifier",
+                        "description": "The identifier of the taxonomy containing the term.",
+                        "format": "uuid",
+                        "constraints": {
+                            "required": false,
+                            "unique": false
+                        },
+                        "example": "07ff6aee-a219-438c-b694-d2fcb6c5373b"
+                    },
+                    {
+                        "name": "term_uri",
+                        "type": "string",
+                        "title": "Term URI",
+                        "description": "URI of the term.",
+                        "format": "uri",
+                        "constraints": {
+                            "required": false,
+                            "unique": false
+                        },
+                        "example": "http://example.com"
                     },
                     {
                         "name": "term",
@@ -1506,6 +1695,155 @@
                             "resource": "service",
                             "fields": "id"
                         }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "organization_identifier",
+            "path": "organization_identifiers.csv",
+            "description": "The details of the third party identifiers for organizations, such as: company registration number, charity number, tax registration number.",
+            "format": "csv",
+            "mediatype": "text/csv",
+            "profile": "tabular-data-resource",
+            "schema": {
+                "primaryKey": "id",
+                "fields": [
+                    {
+                        "name": "id",
+                        "type": "string",
+                        "title": "Identifier",
+                        "description": "The identifier for this organization identifier entry. Each entry must have a unique identifier.",
+                        "format": "uuid",
+                        "constraints": {
+                            "required": true,
+                            "unique": true
+                        },
+                        "example": "d4dbcebc-0802-47cb-8651-b937ac4f2f3e"
+                    },
+                    {
+                        "name": "organization_id",
+                        "type": "string",
+                        "title": "Organization Identifier",
+                        "description": "The identifier of the organization. This should match the uuid of an organization object.",
+                        "format": "uuid",
+                        "constraints": {
+                            "required": true,
+                            "unique": false
+                        },
+                        "example": "d9d5e0f5-d3ce-4f73-9a2f-4dd0ecc6c610"
+                    },
+                    {
+                        "name": "identifier_scheme",
+                        "type": "string",
+                        "title": "Identifier Scheme",
+                        "description": "The scheme of the third party identifier, according to http://org-id.guide/.",
+                        "constraints": {
+                            "required": false,
+                            "unique": false
+                        },
+                        "example": "GB-COH"
+                    },
+                    {
+                        "name": "identifier_type",
+                        "type": "string",
+                        "title": "Identifier Type",
+                        "description": "A human-readable equivalent of the identifier_scheme. This may be used in cases where org-id.guide does not list an appropriate identifier scheme.",
+                        "constraints": {
+                            "required": true,
+                            "unique": false
+                        },
+                        "example": "Company number"
+                    },
+                    {
+                        "name": "identifier",
+                        "type": "string",
+                        "title": "Third Party Identifier",
+                        "description": "The third-party identifier value.",
+                        "constraints": {
+                            "required": true,
+                            "unique": false
+                        },
+                        "example": "1234567"
+                    }
+                ],
+                "foreignKeys": [
+                    {
+                        "fields": "organization_id",
+                        "reference": {
+                            "resource": "organization",
+                            "fields": "id"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "taxonomy",
+            "path": "taxonomies.csv",
+            "description": "The taxonomies from which taxonomy terms are taken.",
+            "format": "csv",
+            "mediatype": "text/csv",
+            "profile": "tabular-data-resource",
+            "schema": {
+                "primaryKey": "id",
+                "fields": [
+                    {
+                        "name": "id",
+                        "type": "string",
+                        "title": "Identifier",
+                        "description": "The identifier of the taxonomy. Each entry must have a unique identifier",
+                        "format": "uuid",
+                        "constraints": {
+                            "required": true,
+                            "unique": true
+                        },
+                        "example": "5c4d79d7-cc55-470e-9f1f-8cad074e4892"
+                    },
+                    {
+                        "name": "name",
+                        "type": "string",
+                        "title": "Name",
+                        "description": "The name of the taxonomy from which terms are sourced.",
+                        "constraints": {
+                            "required": true,
+                            "unique": false
+                        },
+                        "example": "name"
+                    },
+                    {
+                        "name": "description",
+                        "type": "string",
+                        "title": "Description",
+                        "description": "A free text description of the taxonomy.",
+                        "constraints": {
+                            "required": true,
+                            "unique": false
+                        },
+                        "example": "description"
+                    },
+                    {
+                        "name": "uri",
+                        "type": "string",
+                        "title": "URI",
+                        "description": "The URI of the taxonomy.",
+                        "format": "uri",
+                        "constraints": {
+                            "required": false,
+                            "unique": false
+                        },
+                        "example": "http://example.com"
+                    },
+                    {
+                        "name": "version",
+                        "type": "string",
+                        "title": "Version",
+                        "description": "The version of the taxonomy.",
+                        "constraints": {
+                            "required": false,
+                            "unique": false
+                        },
+                        "example": "version"
                     }
                 ]
             }

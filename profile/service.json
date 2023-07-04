@@ -7,11 +7,7 @@
      "application_process":null,
      "wait_time":null,
      "eligibility_description":null,
-     "minimum_age":null,
-      "maximum_age":null,
-      "licenses":null,
-      "assured_date":null,
-      "assurer_email":null
+      "licenses":null
    },
    "allOf": [
      {"required": ["url"]} 

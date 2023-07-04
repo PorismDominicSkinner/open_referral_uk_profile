@@ -165,6 +165,48 @@
           },
           "example": "All of our practitioners are accredited by the BASC, UKCP, and the Professional Standards Body"
         },
+        "minimum_age": {
+          "name": "minimum_age",
+          "type": "number",
+          "title": "Minimum Age",
+          "description": "The minimum age of a person required to meet this eligibility requirement.",
+          "constraints": {
+            "unique": false
+          },
+          "example": "12"
+        },
+        "maximum_age": {
+          "name": "maximum_age",
+          "type": "number",
+          "title": "Maximum Age",
+          "description": "The maximum age of a person required to meet this eligibility requirement.",
+          "constraints": {
+            "unique": false
+          },
+          "example": "100"
+        },
+        "assured_date": {
+          "name": "assured_date",
+          "type": "string",
+          "title": "Assured Date",
+          "description": "The date that the information about the service was last checked.",
+          "constraints": {
+            "unique": false
+          },
+          "example": "2005-01-01",
+          "datapackage_type": "date"
+        },
+        "assurer_email": {
+          "name": "assurer_email",
+          "type": "string",
+          "title": "Assurer Email",
+          "description": "The contact e-mail address for the person or organization which last assured the service.",
+          "format": "email",
+          "constraints": {
+            "unique": false
+          },
+          "example": "email@example.com"
+        },
         "alert": {
           "name": "alert",
           "type": "string",
@@ -238,6 +280,16 @@
                 },
                 "example": "\"+44 1234 234567\"",
                 "core": "Y"
+              },
+              "description": {
+                "name": "description",
+                "type": "string",
+                "title": "Description",
+                "description": "A free text description providing extra information about the phone service",
+                "constraints": {
+                  "unique": false
+                },
+                "example": "Our main reception phone number. The phones will be available from 0800 (8am) until 1800 (6pm) local time. There may be some slight delays in answering your call if we are busy."
               },
               "languages": {
                 "name": "languages",
@@ -489,6 +541,37 @@
                 "example": "18:00:00",
                 "core": "Y",
                 "datapackage_type": "time"
+              },
+              "schedule_link": {
+                "name": "schedule_link",
+                "type": "string",
+                "title": "Schedule Link",
+                "description": "URL of a link for the schedule which may show each individual session and may provide a booking facility.",
+                "format": "uri",
+                "constraints": {
+                  "unique": false
+                },
+                "example": "http://example.com"
+              },
+              "attending_type": {
+                "name": "attending_type",
+                "type": "string",
+                "title": "Attending Type",
+                "description": "A free text description of how to attend this service.",
+                "constraints": {
+                  "unique": false
+                },
+                "example": "You can attend this service in-person or remotely via video conferencing"
+              },
+              "notes": {
+                "name": "notes",
+                "type": "string",
+                "title": "Notes",
+                "description": "Free text notes on the schedule.",
+                "constraints": {
+                  "unique": false
+                },
+                "example": "Some of our staff will be unavailable during their lunch break which may be any 30 minute period between 1200 and 1400"
               }
             },
             "required": [
@@ -564,6 +647,16 @@
                   "unique": false
                 },
                 "example": "extent"
+              },
+              "extent_type": {
+                "name": "extent_type",
+                "type": "string",
+                "title": "Extent Type",
+                "description": "The format of the extent field  populated from an enum of  \"geojson\", \"topojson\",  \"kml\",and (for legacy systems or early state during transformation) \"text\".",
+                "constraints": {
+                  "unique": false
+                },
+                "example": "geojson"
               },
               "uri": {
                 "name": "uri",
@@ -749,6 +842,17 @@
               },
               "example": "http://example.com"
             },
+            "parent_organization_id": {
+              "name": "parent_organization_id",
+              "type": "string",
+              "title": "Parent Organization Identifier",
+              "description": "The identifier of the organization's parent organization.",
+              "format": "uuid",
+              "constraints": {
+                "unique": false
+              },
+              "example": "cd09a387-91f4-4555-94ec-e799c35344cd"
+            },
             "funding": {
               "name": "funding",
               "type": "array",
@@ -925,6 +1029,16 @@
                           },
                           "example": "\"+44 1234 234567\"",
                           "core": "Y"
+                        },
+                        "description": {
+                          "name": "description",
+                          "type": "string",
+                          "title": "Description",
+                          "description": "A free text description providing extra information about the phone service",
+                          "constraints": {
+                            "unique": false
+                          },
+                          "example": "Our main reception phone number. The phones will be available from 0800 (8am) until 1800 (6pm) local time. There may be some slight delays in answering your call if we are busy."
                         },
                         "languages": {
                           "name": "languages",
@@ -1145,6 +1259,16 @@
                     },
                     "example": "\"+44 1234 234567\"",
                     "core": "Y"
+                  },
+                  "description": {
+                    "name": "description",
+                    "type": "string",
+                    "title": "Description",
+                    "description": "A free text description providing extra information about the phone service",
+                    "constraints": {
+                      "unique": false
+                    },
+                    "example": "Our main reception phone number. The phones will be available from 0800 (8am) until 1800 (6pm) local time. There may be some slight delays in answering your call if we are busy."
                   },
                   "languages": {
                     "name": "languages",
@@ -1501,6 +1625,22 @@
                           "example": "US",
                           "core": "Y"
                         },
+                        "address_type": {
+                          "name": "address_type",
+                          "type": "string",
+                          "title": "Address Type",
+                          "description": "The type of address which may be physical, postal, or virtual.",
+                          "constraints": {
+                            "unique": false
+                          },
+                          "example": "postal",
+                          "core": "Y",
+                          "enum": [
+                            "physical",
+                            "postal",
+                            "virtual"
+                          ]
+                        },
                         "attributes": {
                           "name": "attributes",
                           "type": "array",
@@ -1704,6 +1844,16 @@
                                 },
                                 "example": "\"+44 1234 234567\"",
                                 "core": "Y"
+                              },
+                              "description": {
+                                "name": "description",
+                                "type": "string",
+                                "title": "Description",
+                                "description": "A free text description providing extra information about the phone service",
+                                "constraints": {
+                                  "unique": false
+                                },
+                                "example": "Our main reception phone number. The phones will be available from 0800 (8am) until 1800 (6pm) local time. There may be some slight delays in answering your call if we are busy."
                               },
                               "languages": {
                                 "name": "languages",
@@ -1914,6 +2064,38 @@
                           "example": "3a19ff88-4620-4d17-9830-ac1d859eb5d5",
                           "core": "Y"
                         },
+                        "description": {
+                          "name": "description",
+                          "type": "string",
+                          "title": "Description",
+                          "description": "A free text description of the assistance or infrastructure that facilitates access to clients with disabilities.",
+                          "constraints": {
+                            "unique": false
+                          },
+                          "example": "The building is equipped with induction loops for hearing aids. Wheelchair access is possible on all levels.",
+                          "core": "Y"
+                        },
+                        "details": {
+                          "name": "details",
+                          "type": "string",
+                          "title": "Details",
+                          "description": "Any further details relating to the relevant accessibility arrangements at this location.",
+                          "constraints": {
+                            "unique": false
+                          },
+                          "example": "Switch hearing aid to T-coil to access the induction loop facility."
+                        },
+                        "url": {
+                          "name": "url",
+                          "type": "string",
+                          "title": "URL",
+                          "description": "The URL of a page giving more information about the accessibility of the location.",
+                          "format": "uri",
+                          "constraints": {
+                            "unique": false
+                          },
+                          "example": "http://example.com"
+                        },
                         "attributes": {
                           "name": "attributes",
                           "type": "array",
@@ -2059,6 +2241,16 @@
                           },
                           "example": "\"+44 1234 234567\"",
                           "core": "Y"
+                        },
+                        "description": {
+                          "name": "description",
+                          "type": "string",
+                          "title": "Description",
+                          "description": "A free text description providing extra information about the phone service",
+                          "constraints": {
+                            "unique": false
+                          },
+                          "example": "Our main reception phone number. The phones will be available from 0800 (8am) until 1800 (6pm) local time. There may be some slight delays in answering your call if we are busy."
                         },
                         "languages": {
                           "name": "languages",
@@ -2310,6 +2502,37 @@
                           "example": "18:00:00",
                           "core": "Y",
                           "datapackage_type": "time"
+                        },
+                        "schedule_link": {
+                          "name": "schedule_link",
+                          "type": "string",
+                          "title": "Schedule Link",
+                          "description": "URL of a link for the schedule which may show each individual session and may provide a booking facility.",
+                          "format": "uri",
+                          "constraints": {
+                            "unique": false
+                          },
+                          "example": "http://example.com"
+                        },
+                        "attending_type": {
+                          "name": "attending_type",
+                          "type": "string",
+                          "title": "Attending Type",
+                          "description": "A free text description of how to attend this service.",
+                          "constraints": {
+                            "unique": false
+                          },
+                          "example": "You can attend this service in-person or remotely via video conferencing"
+                        },
+                        "notes": {
+                          "name": "notes",
+                          "type": "string",
+                          "title": "Notes",
+                          "description": "Free text notes on the schedule.",
+                          "constraints": {
+                            "unique": false
+                          },
+                          "example": "Some of our staff will be unavailable during their lunch break which may be any 30 minute period between 1200 and 1400"
                         }
                       },
                       "required": [
@@ -2411,6 +2634,162 @@
                       "url"
                     ]
                   }
+                ]
+              }
+            },
+            "organization_identifiers": {
+              "name": "organization_identifiers",
+              "type": "array",
+              "title": "Organization Identifiers",
+              "description": "The details of the third party identifiers for organizations, such as: company registration number, charity number, tax registration number.",
+              "items": {
+                "name": "organization_identifier",
+                "path": "organization_identifiers.csv",
+                "description": "The details of the third party identifiers for organizations, such as: company registration number, charity number, tax registration number.",
+                "datapackage_metadata": {
+                  "format": "csv",
+                  "mediatype": "text/csv",
+                  "profile": "tabular-data-resource",
+                  "order": 20
+                },
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "name": "id",
+                    "type": "string",
+                    "title": "Identifier",
+                    "description": "The identifier for this organization identifier entry. Each entry must have a unique identifier.",
+                    "format": "uuid",
+                    "constraints": {
+                      "unique": true
+                    },
+                    "example": "d4dbcebc-0802-47cb-8651-b937ac4f2f3e"
+                  },
+                  "organization_id": {
+                    "name": "organization_id",
+                    "type": "string",
+                    "title": "Organization Identifier",
+                    "description": "The identifier of the organization. This should match the uuid of an organization object.",
+                    "format": "uuid",
+                    "constraints": {
+                      "unique": false
+                    },
+                    "example": "d9d5e0f5-d3ce-4f73-9a2f-4dd0ecc6c610"
+                  },
+                  "identifier_scheme": {
+                    "name": "identifier_scheme",
+                    "type": "string",
+                    "title": "Identifier Scheme",
+                    "description": "The scheme of the third party identifier, according to http://org-id.guide/.",
+                    "constraints": {
+                      "unique": false
+                    },
+                    "example": "GB-COH"
+                  },
+                  "identifier_type": {
+                    "name": "identifier_type",
+                    "type": "string",
+                    "title": "Identifier Type",
+                    "description": "A human-readable equivalent of the identifier_scheme. This may be used in cases where org-id.guide does not list an appropriate identifier scheme.",
+                    "constraints": {
+                      "unique": false
+                    },
+                    "example": "Company number"
+                  },
+                  "identifier": {
+                    "name": "identifier",
+                    "type": "string",
+                    "title": "Third Party Identifier",
+                    "description": "The third-party identifier value.",
+                    "constraints": {
+                      "unique": false
+                    },
+                    "example": "1234567"
+                  },
+                  "attributes": {
+                    "name": "attributes",
+                    "type": "array",
+                    "title": "Attributes",
+                    "description": "A link between a service and one or more classifications that describe the nature of the service provided.",
+                    "items": {
+                      "name": "attribute",
+                      "path": "attribute.csv",
+                      "description": "The other_attributes table creates a link between entities other than service and one or more classifications that describe the entity.",
+                      "datapackage_metadata": {
+                        "format": "csv",
+                        "mediatype": "text/csv",
+                        "profile": "tabular-data-resource",
+                        "order": 4
+                      },
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "name": "id",
+                          "type": "string",
+                          "title": "Identifier",
+                          "description": "The identifier of the attribute entry. Each attribute entry should have a unique identifier.",
+                          "format": "uuid",
+                          "constraints": {
+                            "unique": true
+                          },
+                          "example": "ae58cc39-8b70-4ab1-8aea-786882e5ac8e",
+                          "core": "Y"
+                        },
+                        "link_id": {
+                          "name": "link_id",
+                          "type": "string",
+                          "title": "Link Identifier",
+                          "description": "The identifier of the entity to which this taxonomy term applies.",
+                          "format": "uuid",
+                          "constraints": {
+                            "unique": false
+                          },
+                          "example": "f28dd44b-0c4d-479f-8e90-4c52219a8b3c",
+                          "core": "Y"
+                        },
+                        "taxonomy_term_id": {
+                          "name": "taxonomy_term_id",
+                          "type": "string",
+                          "title": "Taxonomy Term Identifier",
+                          "description": "The identifier of this taxonomy term from the taxonomy table.",
+                          "format": "uuid",
+                          "constraints": {
+                            "unique": false
+                          },
+                          "example": "3f7b145d-84af-42d7-8fae-eaca714b02b2",
+                          "core": "Y"
+                        },
+                        "link_type": {
+                          "name": "link_type",
+                          "type": "string",
+                          "title": "Link Type",
+                          "description": "A code taken from an enumerated open codelist to indicate what the taxonomy term describes, e.g. the service eligibility or intended audience.",
+                          "constraints": {
+                            "unique": false
+                          },
+                          "example": "link_type",
+                          "core": "Y"
+                        }
+                      },
+                      "required": [
+                        "id"
+                      ],
+                      "tabular_required": [
+                        "link_id",
+                        "taxonomy_term_id",
+                        "link_entity"
+                      ],
+                      "allOf": []
+                    }
+                  }
+                },
+                "required": [
+                  "id",
+                  "identifier_type",
+                  "identifier"
+                ],
+                "tabular_required": [
+                  "organization_id"
                 ]
               }
             },
@@ -2782,6 +3161,16 @@
                       },
                       "example": "\"+44 1234 234567\"",
                       "core": "Y"
+                    },
+                    "description": {
+                      "name": "description",
+                      "type": "string",
+                      "title": "Description",
+                      "description": "A free text description providing extra information about the phone service",
+                      "constraints": {
+                        "unique": false
+                      },
+                      "example": "Our main reception phone number. The phones will be available from 0800 (8am) until 1800 (6pm) local time. There may be some slight delays in answering your call if we are busy."
                     },
                     "languages": {
                       "name": "languages",

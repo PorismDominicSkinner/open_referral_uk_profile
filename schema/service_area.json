@@ -55,6 +55,16 @@
       },
       "example": "extent"
     },
+    "extent_type": {
+      "name": "extent_type",
+      "type": "string",
+      "title": "Extent Type",
+      "description": "The format of the extent field  populated from an enum of  \"geojson\", \"topojson\",  \"kml\",and (for legacy systems or early state during transformation) \"text\".",
+      "constraints": {
+        "unique": false
+      },
+      "example": "geojson"
+    },
     "uri": {
       "name": "uri",
       "type": "string",

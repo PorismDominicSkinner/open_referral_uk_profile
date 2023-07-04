@@ -165,6 +165,48 @@
           },
           "example": "All of our practitioners are accredited by the BASC, UKCP, and the Professional Standards Body"
         },
+        "minimum_age": {
+          "name": "minimum_age",
+          "type": "number",
+          "title": "Minimum Age",
+          "description": "The minimum age of a person required to meet this eligibility requirement.",
+          "constraints": {
+            "unique": false
+          },
+          "example": "12"
+        },
+        "maximum_age": {
+          "name": "maximum_age",
+          "type": "number",
+          "title": "Maximum Age",
+          "description": "The maximum age of a person required to meet this eligibility requirement.",
+          "constraints": {
+            "unique": false
+          },
+          "example": "100"
+        },
+        "assured_date": {
+          "name": "assured_date",
+          "type": "string",
+          "title": "Assured Date",
+          "description": "The date that the information about the service was last checked.",
+          "constraints": {
+            "unique": false
+          },
+          "example": "2005-01-01",
+          "datapackage_type": "date"
+        },
+        "assurer_email": {
+          "name": "assurer_email",
+          "type": "string",
+          "title": "Assurer Email",
+          "description": "The contact e-mail address for the person or organization which last assured the service.",
+          "format": "email",
+          "constraints": {
+            "unique": false
+          },
+          "example": "email@example.com"
+        },
         "alert": {
           "name": "alert",
           "type": "string",
@@ -277,6 +319,17 @@
                 "unique": false
               },
               "example": "http://example.com"
+            },
+            "parent_organization_id": {
+              "name": "parent_organization_id",
+              "type": "string",
+              "title": "Parent Organization Identifier",
+              "description": "The identifier of the organization's parent organization.",
+              "format": "uuid",
+              "constraints": {
+                "unique": false
+              },
+              "example": "cd09a387-91f4-4555-94ec-e799c35344cd"
             }
           },
           "required": [

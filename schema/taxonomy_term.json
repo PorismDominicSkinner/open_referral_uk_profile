@@ -45,6 +45,28 @@
       "example": "taxonomy",
       "core": "Y"
     },
+    "taxonomy_id": {
+      "name": "taxonomy_id",
+      "type": "string",
+      "title": "Taxonomy Identifier",
+      "description": "The identifier of the taxonomy containing the term.",
+      "format": "uuid",
+      "constraints": {
+        "unique": false
+      },
+      "example": "07ff6aee-a219-438c-b694-d2fcb6c5373b"
+    },
+    "term_uri": {
+      "name": "term_uri",
+      "type": "string",
+      "title": "Term URI",
+      "description": "URI of the term.",
+      "format": "uri",
+      "constraints": {
+        "unique": false
+      },
+      "example": "http://example.com"
+    },
     "term": {
       "name": "term",
       "type": "string",

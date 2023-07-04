@@ -4,8 +4,6 @@
      "name":null,
      "description": null,
      "language":null,
-     "taxonomy_id":null,
-     "term_uri":null,
      "taxonomy_detail":null,
     "term": {
       "name": "term",

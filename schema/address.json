@@ -111,6 +111,22 @@
       "example": "US",
       "core": "Y"
     },
+    "address_type": {
+      "name": "address_type",
+      "type": "string",
+      "title": "Address Type",
+      "description": "The type of address which may be physical, postal, or virtual.",
+      "constraints": {
+        "unique": false
+      },
+      "example": "postal",
+      "core": "Y",
+      "enum": [
+        "physical",
+        "postal",
+        "virtual"
+      ]
+    },
     "attributes": {
       "name": "attributes",
       "type": "array",

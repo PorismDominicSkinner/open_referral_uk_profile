@@ -14,7 +14,8 @@
       "email": "email@example.com",
       "website": "http://example.com",
       "logo": "https://openreferral.org/wp-content/uploads/2018/02/OpenReferral_Logo_Green-4-1.png",
-      "uri": "http://example.com"
+      "uri": "http://example.com",
+      "parent_organization_id": "cd09a387-91f4-4555-94ec-e799c35344cd"
     }
   ]
 }

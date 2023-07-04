@@ -89,6 +89,17 @@
       },
       "example": "http://example.com"
     },
+    "parent_organization_id": {
+      "name": "parent_organization_id",
+      "type": "string",
+      "title": "Parent Organization Identifier",
+      "description": "The identifier of the organization's parent organization.",
+      "format": "uuid",
+      "constraints": {
+        "unique": false
+      },
+      "example": "cd09a387-91f4-4555-94ec-e799c35344cd"
+    },
     "funding": {
       "name": "funding",
       "type": "array",
@@ -123,6 +134,15 @@
       "description": "The details of the locations where organizations operate. Locations may be virtual, and one organization may have many locations.",
       "items": {
         "$ref": "location.json"
+      }
+    },
+    "organization_identifiers": {
+      "name": "organization_identifiers",
+      "type": "array",
+      "title": "Organization Identifiers",
+      "description": "The details of the third party identifiers for organizations, such as: company registration number, charity number, tax registration number.",
+      "items": {
+        "$ref": "organization_identifier.json"
       }
     },
     "attributes": {
