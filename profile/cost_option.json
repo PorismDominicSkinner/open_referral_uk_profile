@@ -1,0 +1,9 @@
+{
+   "properties": {
+     "currency": null,
+     "attributes": null
+   },
+   "allOf": [
+     {"required": ["url"]} 
+   ]
+}

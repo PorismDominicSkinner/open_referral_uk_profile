@@ -1,0 +1,12 @@
+{
+   "properties": {
+     "location_type": null,
+     "url": null,
+     "organization_id": null,
+     "alternate_name": null,
+     "transportation": null
+   },
+   "allOf": [
+     {"required": ["url"]} 
+   ]
+}

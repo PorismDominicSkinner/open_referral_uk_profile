@@ -1,7 +1,7 @@
 {
   "name": "attribute",
-  "path": "attributes.csv",
-  "description": "A link between a service and one or more classifications that describe the nature of the service provided.",
+  "path": "attribute.csv",
+  "description": "The other_attributes table creates a link between entities other than service and one or more classifications that describe the entity.",
   "datapackage_metadata": {
     "format": "csv",
     "mediatype": "text/csv",
@@ -56,34 +56,6 @@
       },
       "example": "link_type",
       "core": "Y"
-    },
-    "link_entity": {
-      "name": "link_entity",
-      "type": "string",
-      "title": "Link Entity",
-      "description": "The table of the Link Identifier.",
-      "constraints": {
-        "unique": false
-      },
-      "example": "link_entity",
-      "core": "Y"
-    },
-    "value": {
-      "name": "value",
-      "type": "string",
-      "title": "Value",
-      "description": "The value (if any) of an attribute.",
-      "constraints": {
-        "unique": false
-      },
-      "example": "value",
-      "core": "Y"
-    },
-    "taxonomy_term": {
-      "name": "taxonomy_term",
-      "title": "Taxonomy Term",
-      "description": "Each service can be categorized according to one or more taxonomy terms. The taxonomy_term object contains a list of taxonomy terms, their names, and, for hierarchical taxonomies, their structure.",
-      "$ref": "taxonomy_term.json"
     }
   },
   "required": [
@@ -93,5 +65,6 @@
     "link_id",
     "taxonomy_term_id",
     "link_entity"
-  ]
+  ],
+  "allOf": []
 }

@@ -1,7 +1,7 @@
 {
   "name": "address",
-  "path": "addresses.csv",
-  "description": "The addresses of locations where organizations operate.",
+  "path": "address.csv",
+  "description": "The addresses table contains the physical addresses for locations",
   "datapackage_metadata": {
     "format": "csv",
     "mediatype": "text/csv",
@@ -55,16 +55,6 @@
       },
       "example": "1-30 Main Street",
       "core": "Y"
-    },
-    "address_2": {
-      "name": "address_2",
-      "type": "string",
-      "title": "Address line 2",
-      "description": "A second (additional) line of address information.",
-      "constraints": {
-        "unique": false
-      },
-      "example": "MyVillage"
     },
     "city": {
       "name": "city",
@@ -155,5 +145,6 @@
     "postal_code",
     "country",
     "address_type"
-  ]
+  ],
+  "allOf": []
 }

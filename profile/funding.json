@@ -1,0 +1,9 @@
+{
+   "properties": {
+     "organization_id": null,
+     "attributes": null
+   },
+   "allOf": [
+     {"required": ["url"]} 
+   ]
+}

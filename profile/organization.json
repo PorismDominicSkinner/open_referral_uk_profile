@@ -1,0 +1,11 @@
+{
+   "properties": {
+     "alternate_name": null,
+     "tax_status": null,
+     "tax_id": null,
+     "year_incorporated": null,
+     "legal_status": null
+   },
+   "allOf": [
+   ]
+}

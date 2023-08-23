@@ -21,17 +21,6 @@
       },
       "example": "1f2df32c-bf08-4b8e-bd6f-e834014b19bc"
     },
-    "organization_id": {
-      "name": "organization_id",
-      "type": "string",
-      "title": "Organization Identifier",
-      "description": "The identifier of the organization in receipt of this funding.",
-      "format": "uuid",
-      "constraints": {
-        "unique": false
-      },
-      "example": "d9d5e0f5-d3ce-4f73-9a2f-4dd0ecc6c610"
-    },
     "service_id": {
       "name": "service_id",
       "type": "string",
@@ -52,18 +41,16 @@
         "unique": false
       },
       "example": "This service is funded partially by the MyCity local government and via grants made by charity funding bodies. We also operate a for-profit department which is used to partially cover the expense of the public service"
-    },
-    "attributes": {
-      "name": "attributes",
-      "type": "array",
-      "title": "Attributes",
-      "description": "A link between a service and one or more classifications that describe the nature of the service provided.",
-      "items": {
-        "$ref": "attribute.json"
-      }
     }
   },
   "required": [
     "id"
+  ],
+  "allOf": [
+    {
+      "required": [
+        "url"
+      ]
+    }
   ]
 }

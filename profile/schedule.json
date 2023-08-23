@@ -1,0 +1,20 @@
+{
+  "name": "schedule",
+  "path": "schedule.csv",  
+   "properties": {
+     "location_id": null,
+     "timezone": null,
+     "timezone": null,
+     "until": null,
+     "count": null,
+     "wkst": null,
+     "byweekno": null,
+     "byweekno": null,
+     "byyearday": null,
+     "attributes": null,
+     "attributes": null
+   },
+   "allOf": [
+     {"required": ["url"]} 
+   ]
+}

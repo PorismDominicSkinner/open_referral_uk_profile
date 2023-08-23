@@ -45,17 +45,6 @@
       "example": "The service is available to all residents of the MyCity area. We provide the service in our offices or via video conferencing to any who can provide evidence of their residency.",
       "core": "Y"
     },
-    "description": {
-      "name": "description",
-      "type": "string",
-      "title": "Description",
-      "description": "A more detailed free text description of this service area. Used to provide any additional information that cannot be communicated using the structured area and geometry fields.",
-      "constraints": {
-        "unique": false
-      },
-      "example": "The service is available to all residents of the MyCity area, including all postcodes starting with AB1, AB2, and AB3",
-      "core": "Y"
-    },
     "extent": {
       "name": "extent",
       "type": "string",
@@ -86,17 +75,20 @@
       },
       "example": "http://example.com"
     },
-    "attributes": {
-      "name": "attributes",
-      "type": "array",
-      "title": "Attributes",
-      "description": "A link between a service and one or more classifications that describe the nature of the service provided.",
-      "items": {
-        "$ref": "attribute.json"
-      }
+    "service_area": {
+      "name": "service_area",
+      "type": "string",
+      "title": "Service Area",
+      "description": "A free text geographic area where a service is available.",
+      "constraints": {
+        "unique": false
+      },
+      "example": "The service is available to all residents of the MyCity area. We provide the service in our offices or via video conferencing to any who can provide evidence of their residency.",
+      "core": "Y"
     }
   },
   "required": [
     "id"
-  ]
+  ],
+  "allOf": []
 }

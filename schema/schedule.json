@@ -1,6 +1,6 @@
 {
   "name": "schedule",
-  "path": "schedules.csv",
+  "path": "schedule.csv",
   "description": "The details of when a service or location is open. Entries are RFC 5545 RRULES.",
   "datapackage_metadata": {
     "format": "csv",
@@ -33,17 +33,6 @@
       },
       "example": "ac148810-d857-441c-9679-408f346de14b",
       "core": "Y"
-    },
-    "location_id": {
-      "name": "location_id",
-      "type": "string",
-      "title": "Location Identifier",
-      "description": "The identifier of the location for which this is the regular schedule",
-      "format": "uuid",
-      "constraints": {
-        "unique": false
-      },
-      "example": "3a19ff88-4620-4d17-9830-ac1d859eb5d5"
     },
     "service_at_location_id": {
       "name": "service_at_location_id",
@@ -93,56 +82,6 @@
       "core": "Y",
       "datapackage_type": "date"
     },
-    "timezone": {
-      "name": "timezone",
-      "type": "number",
-      "title": "Timezone",
-      "description": "The timezone that all dates are expressed as, expressed as a UTC offset. Dates are assumed to be UTC otherwise.",
-      "constraints": {
-        "unique": false
-      },
-      "example": "3"
-    },
-    "until": {
-      "name": "until",
-      "type": "string",
-      "title": "Until",
-      "description": "iCal - The date of the last occurrence of the recurring event.",
-      "constraints": {
-        "unique": false
-      },
-      "example": "2005-01-01",
-      "datapackage_type": "date"
-    },
-    "count": {
-      "name": "count",
-      "type": "number",
-      "title": "Count",
-      "description": "iCal - The number of times that the event occurs. Use this instead of \u2018until\u2019, if appropriate.",
-      "constraints": {
-        "unique": false
-      },
-      "example": "3"
-    },
-    "wkst": {
-      "name": "wkst",
-      "type": "string",
-      "title": "Week Start",
-      "description": "iCal - The two-letter code for the day on which the week starts.",
-      "constraints": {
-        "unique": false
-      },
-      "example": "TU",
-      "enum": [
-        "MO",
-        "TU",
-        "WE",
-        "TH",
-        "FR",
-        "SA",
-        "SU"
-      ]
-    },
     "freq": {
       "name": "freq",
       "type": "string",
@@ -180,16 +119,6 @@
       "example": "TH,FR",
       "core": "Y"
     },
-    "byweekno": {
-      "name": "byweekno",
-      "type": "string",
-      "title": "By Week Number",
-      "description": "iCal - Comma separated numeric weeks of the year, where freq is WEEKLY. Can be negative to represent weeks before the end of the year; e.g. -5 is the 5th to last week in a year.",
-      "constraints": {
-        "unique": false
-      },
-      "example": "41,42"
-    },
     "bymonthday": {
       "name": "bymonthday",
       "type": "string",
@@ -200,16 +129,6 @@
       },
       "example": "2,3,4",
       "core": "Y"
-    },
-    "byyearday": {
-      "name": "byyearday",
-      "type": "string",
-      "title": "By Year Day",
-      "description": "iCal - Comma separated numeric days of the month, where frequency is YEARLY. Can be negative to represent days before the end of the year; e.g. -1 is the last day in a year.",
-      "constraints": {
-        "unique": false
-      },
-      "example": "2,3,4"
     },
     "description": {
       "name": "description",
@@ -276,18 +195,16 @@
         "unique": false
       },
       "example": "Some of our staff will be unavailable during their lunch break which may be any 30 minute period between 1200 and 1400"
-    },
-    "attributes": {
-      "name": "attributes",
-      "type": "array",
-      "title": "Attributes",
-      "description": "A link between a service and one or more classifications that describe the nature of the service provided.",
-      "items": {
-        "$ref": "attribute.json"
-      }
     }
   },
   "required": [
     "id"
+  ],
+  "allOf": [
+    {
+      "required": [
+        "url"
+      ]
+    }
   ]
 }
