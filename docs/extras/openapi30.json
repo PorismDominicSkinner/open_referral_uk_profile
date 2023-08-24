@@ -67,7 +67,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "https://raw.githubusercontent.com/openreferral/hsds_example_profile/main/schema/compiled/service.json"
+                  "$ref": "https://raw.githubusercontent.com/openreferral/uk-profile/main/schema/compiled/service.json"
                 }
               }
             }
@@ -91,27 +91,25 @@
             "$ref": "#/components/parameters/per_page"
           },
           {
-            "$ref": "#/components/parameters/format"
-          },
-          {
             "$ref": "#/components/parameters/taxonomy_term_id"
           },
           {
             "$ref": "#/components/parameters/taxonomy_id"
           },
           {
-            "$ref": "#/components/parameters/organization_id"
+            "$ref": "#/components/parameters/minimum_age"
           },
           {
-            "$ref": "#/components/parameters/modified_after"
+            "$ref": "#/components/parameters/maximum_age"
           },
           {
-            "description": "Return array of just services with just 'id' and 'modified_date'.  When using this parameter aim to return all services within one page.",
-            "$ref": "#/components/parameters/minimal"
+            "$ref": "#/components/parameters/start_time"
           },
           {
-            "description": "true, false return fully nested service.",
-            "$ref": "#/components/parameters/full"
+            "$ref": "#/components/parameters/end_time"
+          },
+          {
+            "$ref": "#/components/parameters/day"
           }
         ],
         "responses": {
@@ -124,7 +122,7 @@
                     "contents": {
                       "type": "array",
                       "items": {
-                        "$ref": "https://raw.githubusercontent.com/openreferral/hsds_example_profile/main/schema/compiled/service_list.json"
+                        "$ref": "https://raw.githubusercontent.com/openreferral/uk-profile/main/schema/compiled/service_list.json"
                       }
                     }
                   },
@@ -162,7 +160,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "https://raw.githubusercontent.com/openreferral/hsds_example_profile/main/schema/taxonomy.json"
+                  "$ref": "https://raw.githubusercontent.com/openreferral/uk-profile/main/schema/taxonomy.json"
                 }
               }
             }
@@ -177,16 +175,10 @@
         "operationId": "getPaginatedListOfTaxonomies",
         "parameters": [
           {
-            "$ref": "#/components/parameters/search"
-          },
-          {
             "$ref": "#/components/parameters/page"
           },
           {
             "$ref": "#/components/parameters/per_page"
-          },
-          {
-            "$ref": "#/components/parameters/format"
           }
         ],
         "responses": {
@@ -199,7 +191,7 @@
                     "contents": {
                       "type": "array",
                       "items": {
-                        "$ref": "https://raw.githubusercontent.com/openreferral/hsds_example_profile/main/schema/taxonomy.json"
+                        "$ref": "https://raw.githubusercontent.com/openreferral/uk-profile/main/schema/taxonomy.json"
                       }
                     }
                   },
@@ -237,7 +229,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "https://raw.githubusercontent.com/openreferral/hsds_example_profile/main/schema/taxonomy_term.json"
+                  "$ref": "https://raw.githubusercontent.com/openreferral/uk-profile/main/schema/taxonomy_term.json"
                 }
               }
             }
@@ -252,37 +244,10 @@
         "operationId": "getTaxonomyTermById",
         "parameters": [
           {
-            "$ref": "#/components/parameters/search"
-          },
-          {
             "$ref": "#/components/parameters/page"
           },
           {
             "$ref": "#/components/parameters/per_page"
-          },
-          {
-            "$ref": "#/components/parameters/format"
-          },
-          {
-            "$ref": "#/components/parameters/taxonomy_id"
-          },
-          {
-            "name": "top_only",
-            "in": "query",
-            "required": false,
-            "description": "Only retrieve taxonomy terms that have not child terms.",
-            "schema": {
-              "type": "boolean"
-            }
-          },
-          {
-            "name": "parent_id",
-            "in": "query",
-            "required": false,
-            "description": "Recieve taxonomy terms that have a parent with this id.",
-            "schema": {
-              "type": "string"
-            }
           }
         ],
         "responses": {
@@ -295,94 +260,7 @@
                     "contents": {
                       "type": "array",
                       "items": {
-                        "$ref": "https://raw.githubusercontent.com/openreferral/hsds_example_profile/main/schema/taxonomy_term.json"
-                      }
-                    }
-                  },
-                  "allOf": [
-                    {
-                      "$ref": "#/components/schemas/Page"
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/organizations/{id}": {
-      "parameters": [
-        {
-          "in": "path",
-          "name": "id",
-          "required": true,
-          "description": "The id of the organization that the request is intended to retrieve.",
-          "schema": {
-            "type": "string"
-          }
-        }
-      ],
-      "get": {
-        "description": "Fully nested organization with service array that contains simple information which could only contain the service.id.",
-        "summary": "Fully nested organization with service array that contains simple information which could only contain the service.id.",
-        "operationId": "getOrganizationById",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/full_service"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Fully nested organization with service array that contains simple information which could only contain the service.id.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "https://raw.githubusercontent.com/openreferral/hsds_example_profile/main/schema/compiled/organization.json"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/organizations": {
-      "get": {
-        "description": "Paginated list of basic Organization information.",
-        "summary": "Paginated list of basic Organization information",
-        "operationId": "getPaginatedListOfOrganizations",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/search"
-          },
-          {
-            "$ref": "#/components/parameters/full_service"
-          },
-          {
-            "description": "Contains full nested organization information",
-            "$ref": "#/components/parameters/full"
-          },
-          {
-            "$ref": "#/components/parameters/page"
-          },
-          {
-            "$ref": "#/components/parameters/per_page"
-          },
-          {
-            "$ref": "#/components/parameters/format"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Paginated list of basic Organization information.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "contents": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "https://raw.githubusercontent.com/openreferral/hsds_example_profile/main/schema/compiled/organization_list.json"
+                        "$ref": "https://raw.githubusercontent.com/openreferral/uk-profile/main/schema/taxonomy_term.json"
                       }
                     }
                   },
@@ -420,7 +298,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "https://raw.githubusercontent.com/openreferral/hsds_example_profile/main/schema/compiled/service.json"
+                  "$ref": "https://raw.githubusercontent.com/openreferral/uk-profile/main/schema/compiled/service.json"
                 }
               }
             }
@@ -438,29 +316,31 @@
             "$ref": "#/components/parameters/search"
           },
           {
-            "$ref": "#/components/parameters/taxonomy_term_id"
-          },
-          {
-            "$ref": "#/components/parameters/taxonomy_id"
-          },
-          {
-            "$ref": "#/components/parameters/organization_id"
-          },
-          {
-            "$ref": "#/components/parameters/modified_after"
-          },
-          {
-            "description": "true, false return fully nested service_at_location.",
-            "$ref": "#/components/parameters/full"
-          },
-          {
             "$ref": "#/components/parameters/page"
           },
           {
             "$ref": "#/components/parameters/per_page"
           },
           {
-            "$ref": "#/components/parameters/format"
+            "$ref": "#/components/parameters/taxonomy_term_id"
+          },
+          {
+            "$ref": "#/components/parameters/taxonomy_id"
+          },
+          {
+            "$ref": "#/components/parameters/minimum_age"
+          },
+          {
+            "$ref": "#/components/parameters/maximum_age"
+          },
+          {
+            "$ref": "#/components/parameters/start_time"
+          },
+          {
+            "$ref": "#/components/parameters/end_time"
+          },
+          {
+            "$ref": "#/components/parameters/day"
           },
           {
             "$ref": "#/components/parameters/postcode"
@@ -479,7 +359,7 @@
                     "contents": {
                       "type": "array",
                       "items": {
-                        "$ref": "https://raw.githubusercontent.com/openreferral/hsds_example_profile/main/schema/compiled/service_at_location_list.json"
+                        "$ref": "https://raw.githubusercontent.com/openreferral/uk-profile/main/schema/compiled/service_at_location_list.json"
                       }
                     }
                   },
@@ -647,6 +527,51 @@
         "in": "query",
         "required": false,
         "description": "Return results in the specified format. Default is `json`. Could be `ndjson` which should stream all the results without pagination.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "minimum_age": {
+        "name": "minimum_age",
+        "in": "query",
+        "required": false,
+        "description": "Return services with a minimum age of at least the specified value.",
+        "schema": {
+          "type": "number"
+        }
+      },
+      "maximum_age": {
+        "name": "maximum_age",
+        "in": "query",
+        "required": false,
+        "description": "Return services with a maximum age of at equal to or below the specified value.",
+        "schema": {
+          "type": "number"
+        }
+      },
+      "start_time": {
+        "name": "start_time",
+        "in": "query",
+        "required": false,
+        "description": "Return services with a start time of at least the specified value.",
+        "schema": {
+          "type": "time"
+        }
+      },
+      "end_time": {
+        "name": "end_time",
+        "in": "query",
+        "required": false,
+        "description": "Return services with a end time of at equal to or below the specified value.",
+        "schema": {
+          "type": "time"
+        }
+      },
+      "day": {
+        "name": "day",
+        "in": "query",
+        "required": false,
+        "description": "Return services with a day equal to the specified value.",
         "schema": {
           "type": "string"
         }
